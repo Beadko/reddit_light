@@ -1,27 +1,48 @@
-.SearchBar{
-	display: flex;
+header{
+	display: inline-flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
-	padding: 40px 16px;
-	gap: 142px;
+	padding: 8px;
 
-	width: 1439px;
+	width: 100%;
 	height: 120px;
 
-	background: #FFFFFF;
+	background-color: white;
 	border: 1px solid rgba(0, 0, 0, 0.15);
+
+
 }
 
-.InputBar {
+.SearchBar {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	padding: 0px;
-	gap: 4px;
+	justify-content: center;
+	margin: 0 120px;
+
 	width: 640px;
 	height: 40px;
 	background: linear-gradient(0deg, rgba(103, 80, 164, 0.11), rgba(103, 80, 164, 0.11)), #FFFBFE;
 	border-radius: 28px;
 }
 
+.SearchBar input {
+	width: 640px;
+	height: 24px;
+
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 8px;
+	gap: 4px;
+	width: 640px;
+	height: 24px;
+	background: linear-gradient(0deg, rgba(103, 80, 164, 0.11), rgba(103, 80, 164, 0.11)), #FFFBFE;
+	border-radius: 28px;
+}
