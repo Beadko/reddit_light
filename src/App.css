@@ -3,6 +3,7 @@ body {
 }, 
 html {
  font-size: 18px;
+ font-family: 'Roboto', sans-serif;
 },
 
 .App {
@@ -13,8 +14,6 @@ html {
 
   position: relative;
   height: 100%;
-
- 
 }
 
 .App-logo {
