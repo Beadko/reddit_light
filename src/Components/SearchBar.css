@@ -1,0 +1,27 @@
+.SearchBar{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 40px 16px;
+	gap: 142px;
+
+	width: 1439px;
+	height: 120px;
+
+	background: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.InputBar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0px;
+	gap: 4px;
+	width: 640px;
+	height: 40px;
+	background: linear-gradient(0deg, rgba(103, 80, 164, 0.11), rgba(103, 80, 164, 0.11)), #FFFBFE;
+	border-radius: 28px;
+}
+
