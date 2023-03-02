@@ -34,5 +34,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "**The website is providing the posts from Reddit but without the additional features like voting, commenting, etc.**",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Beadko/reddit_light.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Beadko/reddit_light/issues"
+  },
+  "homepage": "https://github.com/Beadko/reddit_light#readme"
 }
