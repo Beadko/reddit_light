@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.png';
 import './App.css';
-import SearchBar from './Components/SearchBar.js';
+import SearchBar from './Components/SearchBar/SearchBar.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,13 +15,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header>
+        <nav>
           <p className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
             Reddit Light
           </p>
           <SearchBar onSearch = {this.search}/>
-        </header>  
+        </nav>  
       </div>
     );
   }
