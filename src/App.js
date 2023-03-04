@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.png';
 import './App.css';
 import SearchBar from './Components/SearchBar/SearchBar.js';
+import Reddit from './util/Reddit.js';
 
 class App extends React.Component {
   constructor(props) {
