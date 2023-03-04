@@ -37,7 +37,9 @@
   },
   "description": "**The website is providing the posts from Reddit but without the additional features like voting, commenting, etc.**",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Beadko/reddit_light.git"
