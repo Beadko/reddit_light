@@ -15,21 +15,10 @@ class App extends React.Component {
   }
 
   search(term) {
+    console.log(term);
     Reddit.search(term).then(results =>{
-      let output = '<div class="card-columns">';
-    // loop through post
-    results.forEach((post) => {
-
-      output += `<div class="card">
-     <div class="card-body">
-      <h5 class="card-title">${post.title}</h5>
-      <p class="card-text">${post.selftext}</p>
-      <a href="${post.url}" target="_blank" class="btn btn-dark">Read More</a>
-    </div> 
-  </div>`;});
-    output += "</div>";
-    document.getElementById("results").innerHTML = output;
-    });
+      this.setState({searchResults: results.data.data.children})
+    })
   }
 
   render() {
@@ -41,7 +30,7 @@ class App extends React.Component {
             Reddit Light
           </p>
           <SearchBar onSearch = {this.search}/>
-        </nav>  
+        </nav>
       </div>
     );
   }
