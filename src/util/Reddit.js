@@ -11,7 +11,7 @@ const Reddit = {
 			return response.json();
 		})
 		.then(data => {
-			data.data.children.map((data) => data.data);
+		 console.log(data);
 		})
 		.catch(err => {
 			console.log(err);
