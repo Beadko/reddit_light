@@ -2,9 +2,8 @@ import React from 'react';
 import logo from './logo.png';
 import './App.css';
 import SearchBar from './Components/SearchBar/SearchBar.js';
+import SearchResults from './Components/SearchResults/SearchResults.js'
 import Reddit from './util/Reddit.js';
-
-
 
 class App extends React.Component {
   constructor(props) {
@@ -16,8 +15,8 @@ class App extends React.Component {
 
   search(term) {
     console.log(term);
-    Reddit.search(term).then(results =>{
-      this.setState({searchResults: results.data.data.children})
+    Reddit.search(term).then(results => {
+      this.setState({searchResults: results.data})
     })
   }
 
