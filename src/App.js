@@ -14,9 +14,8 @@ class App extends React.Component {
   }
 
   search(term) {
-    console.log(term);
     Reddit.search(term).then(results => {
-      this.setState({searchResults: results.data})
+      console.log(results)
     })
   }
 
@@ -30,6 +29,7 @@ class App extends React.Component {
           </p>
           <SearchBar onSearch = {this.search}/>
         </nav>
+        <SearchResults searchResults={this.state.searchResults}/>
       </div>
     );
   }
