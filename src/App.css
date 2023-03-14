@@ -14,29 +14,15 @@ html {
   height: 100%;
 }
 
-.App-logo {
-  width: 48px;
-  height: 48px;
-  padding: 8px;
-}
 
-.App-header {
+.TopBar {
   font-family: 'Quicksand', sans-serif;
-  font-size:22px;
   display: flex;
   align-items: center;
   text-align: center;
   letter-spacing: 0.15px;
   color: #000000;
   padding: 8px;
+  background-color: white;
 }
 
-.card-text{
-  Overflow:hidden;
-  max-height: 6rem;
-  line-height: 2.5rem;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  text-overflow: ellipsis;
-  display: block;
-}
