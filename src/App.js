@@ -10,7 +10,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      SearchResults:[], 
+      SearchResults:[],
+
     }
   }
 
@@ -25,8 +26,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="TopBar">
-        <Header />
-        <SearchBar onSearch = {this.search}/>
+          <Header />
+          <SearchBar onSearch = {this.search}/>
+        </div>
+        <div className = "SearchResults"> {this.search}
         </div>
       </div>
     );
