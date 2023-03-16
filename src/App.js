@@ -17,7 +17,14 @@ function App() {
     })
   }, [])
 
-  return
+  return (
+    <div className="App">
+        <div className="TopBar">
+          <Header />
+          <SearchBar posts={posts} setSearchResults={setSearchResults}/>
+      </div>
+
+    )
 
 }
 
