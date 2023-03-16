@@ -1,29 +1,21 @@
 import React from 'react';
 import './SearchBar.css';
 
-class SearchBar extends React.Component {
-constructor(props) {
-	super(props);
-	this.state = {term :''};
-	this.search = this.search.bind(this);
-	this.handleTermChange = this.handleTermChange.bind(this);
-}
+const SearchBar = ({posts, setSearchResults}) => {
+	const handleSubmit = event => event.preventDefault();
 
-search() {
- 		this.props.onSearch(this.state.term);
-}
+	const handleTermChange = event => {
+		if (!event.target.value) return setSearchResults(posts);
 
-handleTermChange(event) {
-	this.setState({term : event.target.value});
-}
+		const resultsArray = posts.filter(post => post.title.includes(event.target.value) || post.body.includes(event.target.value))
 
- render() {
+		setSearchResults(resultsArray);
+	};
+
  	return(
- 		<div className="SearchBar">
- 	  		<input placeholder="type something here" onChange = {this.handleTermChange} onKeyDown={this.search}/>
- 		</div>
+ 		<form className="SearchBar" onSubmit={handleSubmit}>
+ 	  		<input placeholder="type something here" onChange = {handleTermChange}/>
+ 		</form>
  	)
-	
- 	}
 }
 export default SearchBar;
