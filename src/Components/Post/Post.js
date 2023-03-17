@@ -1,7 +1,17 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 
-class Post extends React.Component {
+const Post = ({post}) => {
+  return (
+    <article>
+      <h2>{post.title}</h2>
+      <p>{post.body}</p>
+      <p>Post ID: {post.id}</p>
+    </article>
+    )
+}
+
+/*class Post extends React.Component {
     constructor(props){
     super(props);
   }
@@ -12,6 +22,6 @@ class Post extends React.Component {
      </div>
     );
   }
-}
+}*/
 
 export default Post; 
