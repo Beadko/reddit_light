@@ -4,7 +4,7 @@ import Reddit from '../../util/Reddit';
 
 const PostList = ({ posts }) => {
 
-	const results = posts.map( post => <Post post={post}/> );
+	const results = posts.map( post => <Post key ={post.id} post={post}/> );
 
 	return (
 		<div className="postList"> {results} </div>
