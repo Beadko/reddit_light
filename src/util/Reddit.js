@@ -12,9 +12,10 @@ export const getPosts = async (term) => {
 
 	const posts = data.map((post) => {
 		return { 
-			id: post.data.id,
-	        title: post.data.title,
-	        subreddit: post.data.subreddit,
+        	id: post.data.id,
+        	title: post.data.title,
+        	subreddit: post.data.subreddit,
+        	thumbnail: post.data.thumbnail,
 		}
 	});
 
