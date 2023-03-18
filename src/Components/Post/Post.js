@@ -1,27 +1,15 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import Reddit from '../../util/Reddit.js';
 
 const Post = ({post}) => {
+
   return (
     <article>
       <h2>{post.title}</h2>
-      <p>{post.body}</p>
-      <p>Post ID: {post.id}</p>
+      <img src={post.thumbnail} alt="post image"/>
+      <p>{post.subreddit}</p>
     </article>
     )
 }
-
-/*class Post extends React.Component {
-    constructor(props){
-    super(props);
-  }
-  render () {
-    return (
-      <div class = "Post">
-        <h5 class="post-title">${this.props.post.title}</h5>
-     </div>
-    );
-  }
-}*/
 
 export default Post; 
