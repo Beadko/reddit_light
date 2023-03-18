@@ -12,9 +12,15 @@ const SearchBar = ({setPosts, getPosts}) => {
     	})
 	};
 
+	const handleKeyPress = event => {
+		if (event.key === 'Enter') {
+			handleTermChange(event)
+    	}
+	}
+
  	return(
  		<form className="SearchBar" onSubmit={handleSubmit}>
- 	  		<input placeholder="type something here" onChange = {handleTermChange}/>
+ 	  		<input placeholder="type something here" /*onChange = {handleTermChange}*/ onKeyUp={handleKeyPress}/>
  		</form>
  	)
 }
