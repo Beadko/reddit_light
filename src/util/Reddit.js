@@ -5,7 +5,18 @@ export const RedditAPI = axios.create({
 	baseURL:`https://www.reddit.com`
 });
 
-export const getPosts = async () => {
-	const response = await RedditAPI.get(`search.json?q=${term}`);
-	return response.data;
+export const getPosts = async (term) => {
+	const response = await RedditAPI.get(`search.json?q=${term}&sort=new&limit=10`);
+
+	const data = response.data.data.children;
+
+	const posts = data.map((post) => {
+		return { 
+			id: post.data.id,
+	        title: post.data.title,
+	        subreddit: post.data.subreddit,
+		}
+	});
+
+	return posts;
 };

@@ -1,15 +1,15 @@
-import React from 'react';
 import './SearchBar.css';
+import React from 'react';
 
-const SearchBar = ({posts, setSearchResults}) => {
+const SearchBar = ({setPosts, getPosts}) => {
 	const handleSubmit = event => event.preventDefault();
 
 	const handleTermChange = event => {
-		if (!event.target.value) return setSearchResults(posts);
+		if (!event.target.value) return;
 
-		const resultsArray = posts.filter(post => post.title.includes(event.target.value) || post.body.includes(event.target.value))
-
-		setSearchResults(resultsArray);
+ 		getPosts(event.target.value).then(posts => {
+      		setPosts(posts);
+    	})
 	};
 
  	return(

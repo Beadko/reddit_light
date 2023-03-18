@@ -1,8 +1,13 @@
-const PostList({searchResults}) => {
+import React from 'react';
+import Post from '../Post/Post.js';
+import Reddit from '../../util/Reddit';
+
+const PostList = ({ posts }) => {
+
+	const results = posts.map( post => <Post post={post}/> );
 
 	return (
-		<div> 
-		</div>
+		<div className="postList"> {results} </div>
 	)
 }
 export default PostList;

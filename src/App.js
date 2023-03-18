@@ -1,29 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import {getPosts} from './util/Reddit.js';
-import SearchBar from './Components/SearchBar/SearchBar.js'
-import Header from './Components/Header/Header.js'
+import Header from './Components/Header/Header.js';
+import SearchBar from './Components/SearchBar/SearchBar.js';
+import PostList from './Components/PostList/PostList.js'
+
 
 function App() {
   const [posts, setPosts] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
-
-  useEffect(() => {
-    getPosts().then(json => {
-      setPosts(json)
-      return json
-    }).then(json => {
-      setSearchResults(json)
-    })
-  }, [])
 
   return (
     <div className="App">
         <div className="TopBar">
           <Header />
-          <SearchBar posts={posts} setSearchResults={setSearchResults}/>
-      </div>
-
+          <SearchBar setPosts={setPosts} getPosts={getPosts}/>
+        </div>
+        <PostList posts={posts} />
+    </div>
     )
 
 }
