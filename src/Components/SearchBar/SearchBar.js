@@ -20,7 +20,7 @@ const SearchBar = ({setPosts, getPosts}) => {
 
  	return(
  		<form className="SearchBar" onSubmit={handleSubmit}>
- 	  		<input placeholder="type something here" /*onChange = {handleTermChange}*/ onKeyUp={handleKeyPress}/>
+ 	  		<input placeholder="type something here" onKeyUp={handleKeyPress}/>
  		</form>
  	)
 }
