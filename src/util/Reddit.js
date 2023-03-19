@@ -6,7 +6,7 @@ export const RedditAPI = axios.create({
 });
 
 export const getPosts = async (term) => {
-	const response = await RedditAPI.get(`search.json?q=${term}&sort=new&limit=10`);
+	const response = await RedditAPI.get(`search.json?q=${term}&sort=best&limit=10`);
 
 	const data = response.data.data.children;
 
