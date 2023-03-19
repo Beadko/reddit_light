@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Reddit from '../../util/Reddit.js';
 import no_image from './No-image.png';
+import './Post.css'
 
 const Post = ({post}) => {
 
@@ -13,7 +14,7 @@ const Post = ({post}) => {
   };
 
   const [thumbnail, setThumbnail] = useState(postThumbnail);
-  
+
   const thumbnailNotLoading =()=> {
     setThumbnail(no_image);
   };
@@ -21,7 +22,7 @@ const Post = ({post}) => {
   return (
     <article>
       <h3>{post.title}</h3>
-      <img src={post.thumbnail} alt="post image" onError={thumbnailNotLoading}/>
+      <img src={thumbnail} alt="post image" onError={thumbnailNotLoading}/>
     </article>
     )
 }
