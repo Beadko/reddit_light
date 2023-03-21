@@ -6,7 +6,7 @@ const initialState = {
 	hasErrors: false,
 }
 
-const PostsSlice = createSlice({
+const postsSlice = createSlice({
 	name: 'posts',
 	initialState,
 	reducers: {
