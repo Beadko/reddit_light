@@ -10,14 +10,7 @@ export const getPosts = async (subreddit) => {
 
 	const data = response.data.data.children;
 
-	const posts = data.map((post) => {
-		return { 
-        	id: post.data.id,
-        	title: post.data.title,
-        	subreddit: post.data.subreddit,
-        	thumbnail: post.data.thumbnail,
-		}
-	});
+	const posts = data.map((post) => post.data);
 
 	return posts;
 };

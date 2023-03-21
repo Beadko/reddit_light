@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Post from '../Post/Post.js';
-import Reddit from '../../util/Reddit';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchPosts } from './PostsSlice.js'
 
 const PostList = () => {
-	const posts = useSelector(state => state.posts)
+	const dispatch = useDispatch();
+	const posts = useSelector(state => state.posts);
+
+	useEffect(()=>{dispatch(fetchPosts())},[dispatch]);
 
 	const renderedPosts = posts.map( post => <Post key ={post.id} post={post}/> );
 

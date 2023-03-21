@@ -18,7 +18,7 @@ export default postsSlice.reducer;
 
 export const fetchPosts = createAsyncThunk('reddit/getSubredditPosts', 
 	async (subreddit) => {
-	const response = await fetch(`https://www.reddit.com/r/${subreddit}.json`);
+	const response = await fetch(`https://www.reddit.com/r/${subreddit}.json?limit=20`);
 	const json = await response.json();
 	return json.data.children.map(post => post.data)
 });
