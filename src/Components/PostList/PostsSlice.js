@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { RedditAPI } from '../../util/Reddit.js';
 
 const initialState = {
-	posts: null,
-	isLoading: false,
-	hasErrors: false,
+	posts: [],
+	status:'idle',
+	error: null
 }
 
 const postsSlice = createSlice({
@@ -11,16 +12,31 @@ const postsSlice = createSlice({
 	initialState,
 	reducers: {
 
-	}
+	}, 
+	extraReducers(builder) {
+    builder
+      .addCase(getPosts.pending, (state, action) => {
+        state.status = 'loading'
+      })
+      .addCase(getPosts.fulfilled, (state, action) => {
+        state.status = 'succeeded'
+        // Add any fetched posts to the array
+        state.posts = state.posts.concat(action.payload)
+      })
+      .addCase(getPosts.rejected, (state, action) => {
+        state.status = 'failed'
+        state.error = action.error.message
+      })
+  }
 });
 
 export default postsSlice.reducer;
 
-export const selectAllPosts = (state => state.posts);
+export const selectAllPosts = (state => state.posts.posts);
 
-export const fetchPosts = createAsyncThunk('reddit/getSubredditPosts', 
+export const getPosts = createAsyncThunk('reddit/getSubredditPosts', 
 	async (subreddit) => {
-	const response = await fetch(`https://www.reddit.com/r/${subreddit}.json?limit=20`);
+	const response = await RedditAPI.get(`r/${subreddit}.json?limit=20`);
 	const json = await response.json();
 	const data = response.data.data.children;
 	const posts = data.map((post) => {

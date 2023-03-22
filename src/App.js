@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { getPosts } from './util/Reddit.js';
+import { getPosts } from './Components/PostList/PostsSlice.js';
 import Header from './Components/Header/Header.js';
 import SearchBar from './Components/SearchBar/SearchBar.js';
 import PostList from './Components/PostList/PostList.js';
@@ -14,7 +14,7 @@ function App() {
           <Header />
           <SearchBar setPosts={setPosts} getPosts={getPosts}/>
         </div>
-        <PostList posts={posts} />
+        <PostList posts={posts} getPosts={getPosts}/>
     </div>
     )
 }

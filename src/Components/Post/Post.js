@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Reddit from '../../util/Reddit.js';
 import no_image from './No-image.png';
 import './Post.css'
 

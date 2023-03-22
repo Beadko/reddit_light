@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
 import Post from '../Post/Post.js';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectAllPosts, fetchPosts } from './PostsSlice.js'
+import { selectAllPosts, getPosts } from './PostsSlice.js'
 
 const PostList = () => {
 	const dispatch = useDispatch();
 	const posts = useSelector(selectAllPosts);
+	const postStatus = useSelector(state => state.posts.status);
 
-	useEffect(()=>{dispatch(fetchPosts())},[dispatch]);
+	useEffect(()=>{
+		dispatch(getPosts())
+	},[dispatch]);
 
 	const renderedPosts = posts.map( post => 
 			<Post key ={post.id} post={post}/> 
