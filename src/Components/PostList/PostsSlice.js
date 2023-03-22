@@ -16,6 +16,8 @@ const postsSlice = createSlice({
 
 export default postsSlice.reducer;
 
+export const selectAllPosts = (state => state.posts);
+
 export const fetchPosts = createAsyncThunk('reddit/getSubredditPosts', 
 	async (subreddit) => {
 	const response = await fetch(`https://www.reddit.com/r/${subreddit}.json?limit=20`);
