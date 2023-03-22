@@ -34,10 +34,9 @@ export default postsSlice.reducer;
 
 export const selectAllPosts = (state => state.posts.posts);
 
-export const getPosts = createAsyncThunk('reddit/getSubredditPosts', 
+export const getPosts = createAsyncThunk('reddit/getPosts', 
 	async (subreddit) => {
-	const response = await RedditAPI.get(`r/${subreddit}.json?limit=20`);
-	const json = await response.json();
+	const response = await RedditAPI.get(`r/${subreddit}/new.json?&limit=30`);
 	const data = response.data.data.children;
 	const posts = data.map((post) => {
 		return { 

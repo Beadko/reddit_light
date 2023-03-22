@@ -12,9 +12,9 @@ function App() {
     <div className="App">
         <div className="TopBar">
           <Header />
-          <SearchBar setPosts={setPosts} getPosts={getPosts}/>
+          <SearchBar setPosts={setPosts}/>
         </div>
-        <PostList posts={posts} getPosts={getPosts}/>
+        <PostList posts={posts}/>
     </div>
     )
 }
