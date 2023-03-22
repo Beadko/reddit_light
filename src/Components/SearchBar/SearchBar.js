@@ -1,13 +1,13 @@
 import './SearchBar.css';
 import React from 'react';
 
-const SearchBar = ({setPosts, getPosts}) => {
+const SearchBar = ({setPosts, searchPosts}) => {
 	const handleSubmit = event => event.preventDefault();
 
 	const handleTermChange = event => {
 		if (!event.target.value) return;
 
- 		getPosts(event.target.value).then(posts => {
+ 		searchPosts(event.target.value).then(posts => {
       		setPosts(posts);
     	})
 	};
