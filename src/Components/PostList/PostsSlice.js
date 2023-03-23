@@ -74,6 +74,7 @@ export const getSearchPosts = createAsyncThunk('reddit/searchPosts',
 			        text: post.data.selftext,
 			        author: post.data.author,
 			        num_comments: post.data.num_comments,
+			        time_created: post.data.created_utc,
 		            img: post.data.url,
 		   		}
 		   	});
