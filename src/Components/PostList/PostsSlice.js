@@ -21,7 +21,7 @@ const postsSlice = createSlice({
       })
       .addCase(getPosts.fulfilled, (state, action) => {
         state.status = 'succeeded'
-        state.posts = state.posts.concat(action.payload)
+        state.posts = action.payload
       })
       .addCase(getPosts.rejected, (state, action) => {
         state.status = 'failed'
@@ -32,7 +32,7 @@ const postsSlice = createSlice({
       })
       .addCase(getSearchPosts.fulfilled, (state, action) => {
         state.status = 'succeeded'
-        state.posts = state.posts.concat(action.payload)
+        state.posts = action.payload
       })
       .addCase(getSearchPosts.rejected, (state, action) => {
         state.status = 'failed'
@@ -44,11 +44,11 @@ const postsSlice = createSlice({
 
 export default postsSlice.reducer;
 
-export const selectAllPosts = (state => state.posts.posts);
+export const selectPosts = (state => state.posts.posts);
 
 export const getPosts = createAsyncThunk('reddit/getPosts', 
 	async (subreddit) => {
-	const response = await RedditAPI.get(`r/${subreddit}/new.json?&limit=30`);
+	const response = await RedditAPI.get(`r/${subreddit}.json`);
 	const data = response.data.data.children;
 	const posts = data.map((post) => {
 		return { 
@@ -60,16 +60,24 @@ export const getPosts = createAsyncThunk('reddit/getPosts',
 	return posts;
 });
 
+export const selectSearchTerm = (state => state.searchTerm);
+
 export const getSearchPosts = createAsyncThunk('reddit/searchPosts',
-	async(term) => {
-		const response = RedditAPI.get(`search.json?q=${term}&sort=top&limit=30`);
-		const data = response.data.data.children;
-	const posts = data.map((post) => {
-		return { 
-			id: post.data.id,
-	        title: post.data.title,
-	        subreddit: post.data.subreddit,
-		}
-	});
-	return posts;
-});
+	async(searchTerm) => {
+		return RedditAPI.get(`search.json?q=${searchTerm}&sort=top&limit=30`).then( response => {
+			const data = response.data.data.children;
+			const posts = data.map((post) => {
+				return { 
+					id: post.data.id,
+	        		title: post.data.title,
+			        text: post.data.selftext,
+			        author: post.data.author,
+			        num_comments: post.data.num_comments,
+			        time_created: post.data.created_utc,
+		            img: post.data.url,
+		   		}
+		   	});
+			return posts;
+		});
+	}
+);

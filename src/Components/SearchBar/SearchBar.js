@@ -1,15 +1,21 @@
 import './SearchBar.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectSearchTerm, getSearchPosts, selectPosts } from '../PostList/PostsSlice.js';
 
 const SearchBar = ({setPosts, searchPosts}) => {
 	const handleSubmit = event => event.preventDefault();
+	const dispatch = useDispatch();
 
 	const handleTermChange = event => {
 		if (!event.target.value) return;
 
- 		searchPosts(event.target.value).then(posts => {
+ 		dispatch(getSearchPosts(event.target.value));
+/*
+ 			searchPosts(event.target.value).then(posts => {
       		setPosts(posts);
     	})
+*/
 	};
 
 	const handleKeyPress = event => {
