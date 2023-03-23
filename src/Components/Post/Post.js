@@ -1,27 +1,29 @@
 import React, {useState} from 'react';
 import no_image from './No-image.png';
 import './Post.css'
+import { useSelector } from '../PostList/PostsSlice.js'
 
 const Post = ({post}) => {
 
-  const postThumbnail= () => {
-    if (!post.thumbnail){
-      return no_image;
+  const postImage = () => {
+    if (!post.img){
+      return false;
       } else {
-        return post.thumbnail;
+        return post.img;
       }
   };
 
-  const [thumbnail, setThumbnail] = useState(postThumbnail);
-
-  const thumbnailNotLoading =()=> {
-    setThumbnail(no_image);
-  };
+  const [img, setImg] = useState(postImage);
 
   return (
     <article>
       <h3>{post.title}</h3>
-      <img src={thumbnail} alt="post image" onError={thumbnailNotLoading}/>
+      {postImage()}
+      <p className="ellipsis">{ post.text }</p>
+      <div className= 'post_info'>
+        <p>{post.author}</p>
+        <p>{post.num_comments}</p>
+      </div>
     </article>
     )
 }

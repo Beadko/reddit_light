@@ -53,14 +53,15 @@ export const getPosts = createAsyncThunk('reddit/getPosts',
 	const posts = data.map((post) => {
 		return { 
 			id: post.data.id,
-	        title: post.data.title,
-	        subreddit: post.data.subreddit,
+	       	title: post.data.title,
+	        text: post.data.selftext,
+	        author: post.data.author,
+			num_comments: post.data.num_comments,
+		    img: post.data.url,
 		}
 	});
 	return posts;
 });
-
-export const selectSearchTerm = (state => state.searchTerm);
 
 export const getSearchPosts = createAsyncThunk('reddit/searchPosts',
 	async(searchTerm) => {
@@ -73,7 +74,6 @@ export const getSearchPosts = createAsyncThunk('reddit/searchPosts',
 			        text: post.data.selftext,
 			        author: post.data.author,
 			        num_comments: post.data.num_comments,
-			        time_created: post.data.created_utc,
 		            img: post.data.url,
 		   		}
 		   	});
