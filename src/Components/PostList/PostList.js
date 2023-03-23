@@ -1,27 +1,23 @@
 import React, { useEffect } from 'react';
 import Post from '../Post/Post.js';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectAllPosts, getPosts } from './PostsSlice.js'
+import { selectPosts, getPosts } from './PostsSlice.js';
 
 const PostList = () => {
 	const dispatch = useDispatch();
-	const posts = useSelector(selectAllPosts);
+	const posts = useSelector(selectPosts);
 	const postStatus = useSelector(state => state.posts.status);
 	const error = useSelector(state => state.posts.error);
 	let postListEmpty = true;
 
 	useEffect(() => {
 		if (postListEmpty) {
-			dispatch(getPosts('worldnews'));
-			postListEmpty = false
+			if (postStatus === 'idle') {
+				dispatch(getPosts('TalesFromRetail'));
+				postListEmpty = false
+			}
 		}
-	},[])
-
-  	useEffect(() => {
-    	if (postStatus === 'idle') {
-      	dispatch(getPosts())
-    	}
-  	}, [postStatus, dispatch])
+	},[postStatus, dispatch])
 
   	let content;
 
