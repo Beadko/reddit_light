@@ -20,7 +20,7 @@ const subredditSlice = createSlice({
       		})
       		.addCase(getSubreddits.fulfilled, (state, action) => {
         		state.status = 'succeeded'
-        		state.posts = action.payload
+        		state.subreddits = action.payload
       		})
       		.addCase(getSubreddits.rejected, (state, action) => {
         		state.status = 'failed'
@@ -35,8 +35,9 @@ export const selectSubreddits = (state => state.subreddits.subreddits);
 
 export const getSubreddits = createAsyncThunk('reddit/getSubreddits', 
 	async () => {
-	const response = await RedditAPI.get(`/subreddits.json`);
-	const data = response.data.data.children;
-	const subreddits = data.map((subreddit) => subreddit.data);
-	return subreddits;
+		return RedditAPI.get(`/subreddits.json`).then(response => {
+			const data = response.data.data.children;
+			const subreddits = data.map((subreddit) => subreddit.data);
+			return subreddits;
+		});
 });
