@@ -1,13 +1,19 @@
 import React, {useState} from 'react';
-import moment from 'moment';
 import no_image from './No-image.png';
-import './Post.css'
-import { useSelector } from '../PostList/PostsSlice.js'
+import './Post.css';
+import { useSelector } from '../PostList/PostsSlice.js';
+import { formatDistanceToNowStrict, fromUnixTime } from "date-fns";
+
+
 
 const Post = ({post}) => {
 
   const postHasImage = url => url.match(/\.(jpeg|jpg|png|gif)$/) !== null;
-  const formatDate = date => moment.unix(date).fromNow();
+  const formatDate = (timestamp) => {
+  const date = fromUnixTime(timestamp);
+  const timeAgo = formatDistanceToNowStrict(date, { addSuffix: true });
+  return timeAgo;
+}
 
   return (
     <article>
