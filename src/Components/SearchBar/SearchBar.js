@@ -11,11 +11,6 @@ const SearchBar = ({setPosts, searchPosts}) => {
 		if (!event.target.value) return;
 
  		dispatch(getSearchPosts(event.target.value));
-/*
- 			searchPosts(event.target.value).then(posts => {
-      		setPosts(posts);
-    	})
-*/
 	};
 
 	const handleKeyPress = event => {
