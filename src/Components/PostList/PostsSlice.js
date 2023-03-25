@@ -38,7 +38,17 @@ const postsSlice = createSlice({
         state.status = 'failed'
         state.error = action.error.message
       })
-
+      .addCase(getComments.pending, (state, action) => {
+        state.status = 'loading'
+      })
+      .addCase(getComments.fulfilled, (state, action) => {
+        state.status = 'succeeded'
+        state.comments = action.payload
+      })
+      .addCase(getComments.rejected, (state, action) => {
+        state.status = 'failed'
+        state.error = action.error.message
+      })
   }
 });
 
@@ -56,8 +66,8 @@ export const getPosts = createAsyncThunk('reddit/getPosts',
 	       	title: post.data.title,
 	        text: post.data.selftext,
 	        author: post.data.author,
-			num_comments: post.data.num_comments,
-		    img: post.data.url,
+					num_comments: post.data.num_comments,
+		    	img: post.data.url,
 		}
 	});
 	return posts;
@@ -75,10 +85,20 @@ export const getSearchPosts = createAsyncThunk('reddit/searchPosts',
 			        author: post.data.author,
 			        num_comments: post.data.num_comments,
 			        time_created: post.data.created_utc,
-		            img: post.data.url,
+		          img: post.data.url,
 		   		}
 		   	});
 			return posts;
 		});
 	}
 );
+
+export const getComments = createAsyncThunk('reddit/getComments',
+	async({subreddit, postId}) => {
+		return RedditAPI.get(`https://www.reddit.com/${subreddit}/comments/${postId}.json?limit=30`).then( response => {
+			const data = response.data.data.children;
+			const comments = data.map((comment => comment.data));
+		})
+	}
+)
+
