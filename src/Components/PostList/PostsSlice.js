@@ -5,7 +5,8 @@ const initialState = {
 	posts: [],
 	status:'idle',
 	error: null,
-	searchTerm:''
+	searchTerm:'',
+	comments: []
 }
 
 const postsSlice = createSlice({

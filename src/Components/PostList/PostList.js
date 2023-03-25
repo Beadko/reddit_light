@@ -13,14 +13,13 @@ const PostList = () => {
 	useEffect(() => {
 		if (postListEmpty) {
 			if (postStatus === 'idle') {
-				dispatch(getPosts('TalesFromRetail'));
+				dispatch(getPosts('funny_cats'));
 				postListEmpty = false
 			}
 		}
 	},[postStatus, dispatch])
 
   	let content;
-
   	if (postStatus === 'loading') {
     	content = <div className="spinner-border">Loading...</div>
   	} else if (postStatus === 'succeeded') {
