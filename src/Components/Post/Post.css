@@ -3,10 +3,3 @@ img {
 	width: 250px;
 }
 
-.ellipsis {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
-  overflow: hidden;
-  width: 50em;
-}
