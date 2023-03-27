@@ -1,0 +1,32 @@
+.sidebar {
+	text-align: left;
+	background: white;
+	width: 20%;
+	padding-top: 8px;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+	top:80px;
+}
+
+.subreddit-title {
+	padding-left: 8px;
+}
+
+.subreddit-list {
+	list-style-type:none;
+}
+
+.subreddit-icon {
+ height: 24px;
+ width: 24px;
+ padding: 8px;
+} 
+
+button {
+	display: flex;
+	align-items: center;
+	background: none;
+	border: none;
+
+}

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './SideBar.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { selectSubreddits, getSubreddits } from './SubredditSlice.js';
 import { getPosts } from '../PostList/PostsSlice.js';
@@ -21,12 +22,11 @@ const SideBar = () => {
     	content = <div className="spinner-border">Loading...</div>
   	} else if (subredditStatus === 'succeeded') {
     	content = subreddits.map((subreddit) => (
-				<li key={subreddit.id}>
+				<li className='individual-subreddits' key={subreddit.id}>
 					<button className={subreddit.display_name} onClick={() => dispatch(getPosts(subreddit.display_name))}>
-					<img src={subreddit.icon_img || `https://www.redditinc.com/assets/images/site/reddit-logo.png`
+					<img className ='subreddit-icon' src={subreddit.icon_img || `https://www.redditinc.com/assets/images/site/reddit-logo.png`
 						 }
 						alt={`${subreddit.display_name}`}
-						className="subreddit-icon" 
 					/>
 					{subreddit.display_name}
 					</button>
@@ -37,7 +37,7 @@ const SideBar = () => {
   	}
 
 	return(
-		<div className="side_bar">
+		<div className="sidebar">
 			<h3 className="subreddit-title">Your Subreddits</h3>
 			<ul className="subreddit-list">
 			{content}

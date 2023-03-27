@@ -17,7 +17,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <div className="TopBar">
+        <div className="topbar">
           <Header />
             <SearchBar />
         </div>
