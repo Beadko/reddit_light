@@ -1,12 +1,13 @@
 
 .App-logo {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   margin: 8px;
 }
 .App-header {
   font-family: 'Quicksand', sans-serif;
   display: flex;
   align-items: center;
+  padding-left: 24px;
 }
 

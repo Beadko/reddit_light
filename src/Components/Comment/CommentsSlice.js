@@ -36,11 +36,7 @@ export const selectComments = (state => state.comments.comments);
 
 export const getComments = createAsyncThunk('reddit/getComments',
 	async(permalink) => {
-		return RedditAPI.get(`https://www.reddit.com/${permalink}`).then( response => {
-			// We expect an array of 2 items back in response
-			// The first item is the post, and the second is the comments
-			// The top level comments are in the children of that data
-			// Replies to those are nested inside each comment
+		return RedditAPI.get(`${permalink}`).then( response => {
 			const data = response.data[1].data.children;
 			const comments = data.map((comment => comment.data));
 			return comments;

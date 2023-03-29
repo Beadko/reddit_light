@@ -1,3 +1,11 @@
+article {
+	background: white;
+	display: block;
+	width: 60%;
+	top: 80px;
+	align-c: center;
+}
+
 img {
 	height: 200px;
 	width: 250px;
