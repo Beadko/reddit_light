@@ -5,13 +5,16 @@ const initialState = {
  subreddits: [],
  status:'idle',
  error: null,
+ activeSubreddit: 'funny cats'
 }
 
 const subredditSlice = createSlice({
 	name:'subreddits',
 	initialState,
 	reducers: {
-
+        changeActiveSubreddit: (state, action) => {
+            state.activeSubreddit = action.payload;
+        }
 	},
 	extraReducers(builder) {
 		builder
@@ -28,7 +31,7 @@ const subredditSlice = createSlice({
       		})
 	}
 });
-
+export const {changeActiveSubreddit} = subredditSlice.actions;
 export default subredditSlice.reducer;
 
 export const selectSubreddits = (state => state.subreddits.subreddits);

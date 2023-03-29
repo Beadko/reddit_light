@@ -1,20 +1,26 @@
 .sidebar {
-	text-align: left;
+
 	background: white;
-	width: 20%;
+	width: 15%;
 	padding-top: 8px;
 	position: fixed;
 	height: 100%;
 	overflow: auto;
-	top:80px;
+	top:5%;
 }
 
 .subreddit-title {
-	padding-left: 8px;
+	margin: 16px 40px 16px 40px;
+	color: gray;
+	font-family: 'Roboto', sans-serif;
 }
 
 .subreddit-list {
 	list-style-type:none;
+}
+
+.individual-subreddits {
+ 	width:100%;
 }
 
 .subreddit-icon {
@@ -29,4 +35,13 @@ button {
 	background: none;
 	border: none;
 
+}
+
+button:hover {
+	background-color: #F5F5F5;
+	cursor: pointer;
+}
+
+.current {
+	text-decoration: underline;
 }
