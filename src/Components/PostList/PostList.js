@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './PostList.css';
 import Post from '../Post/Post.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectPosts, getPosts } from './PostsSlice.js';
@@ -31,7 +32,7 @@ const PostList = () => {
   	}
 
 	return (
-		<div className="postList"> {content} </div>
+		<div className="post-list"> {content} </div>
 	)
 }
 export default PostList;

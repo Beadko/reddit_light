@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import no_image from './No-image.png';
+import comment_icon from './comment_icon.png'
 import './Post.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { formatDistanceToNowStrict, fromUnixTime } from 'date-fns';
@@ -27,8 +28,9 @@ const Post = ({post}) => {
     <article>
       <h3>{post.title}</h3>
       {postHasImage(post.url) ? (
-                    <img src={post.url} alt="post-image"/>
-                ) : null}
+                    <img src={post.url} alt="post-image" className='post-image'/>
+                ) : <img className='no-image' src={no_image} alt='no-image'/>
+    }
       {post.text ? (
         isTextLong ? (
           <p className='post-text'>
@@ -46,11 +48,13 @@ const Post = ({post}) => {
         )
       ) : null}
 
-      <div className= 'post_info'>
+      <div className= 'post-info'>
         <p>{post.subreddit}</p>
         <p>Posted by: {post.author}</p>
         <p>Posted on: {formatDate([post.created_utc])}</p>
-        <p>{post.num_comments}</p>
+        <p>
+          <img src='comment_icon' className='comment-icon' alt='comments'/>
+          {post.num_comments}</p>
       </div>
       <CommentList post={post}/>
     </article>

@@ -1,13 +1,35 @@
+main {
+
+}
+
 article {
 	background: white;
 	display: block;
-	width: 60%;
-	top: 80px;
-	align-c: center;
+	width: 50%;
+	height: auto;
+	text-align: center;
+	padding: 1%;
+	margin-bottom: 1%;
+
+}
+
+.post-text {
+	text-align: left;
+}
+
+.post-info {
+	display: flex;
+	justify-content: space-between;
+
 }
 
 img {
-	height: 200px;
-	width: 250px;
+	width: 70%;
+	height:auto;
+}
+
+.no_image {
+	width: 20%;
+	height:auto;
 }
 
