@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Comment from './Comment.js'
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from "react-router-dom";
@@ -11,6 +11,9 @@ const CommentList = ({post}) => {
 	const comments = useSelector(selectComments);
 	const commentStatus = useSelector(state => state.comments.status);
 	const error = useSelector(state => state.comments.error);
+	//setting the limit of the comments to show
+	const [showCount, setShowCount] = useState(5);
+	const visibleComments = comments.slice(0, showCount);
 
   	useEffect(() => {
 	  	let url = post.permalink.replace(/\/$/, '.json');
@@ -21,9 +24,15 @@ const CommentList = ({post}) => {
 	  if (commentStatus === 'loading') {
 	      content = <div><FaSpinner />Loading...</div>
 	    } else if (commentStatus === 'succeeded') {
-	      content = comments.map(comment => 
+	      content = visibleComments.map((comment, index) => 
 	          <Comment key={comment.id} comment={comment} />
 	      );
+	      showCount < comments.length && (
+            <button onClick={() => setShowCount(showCount === 3 ? comments.length : 3)}>
+               {showCount === 3 ? 'Show More' : 'Show Less'}
+            </button>
+         )
+
 	    } else if (commentStatus === 'failed') {
 	      content = <div>{error}</div>
 	    }
