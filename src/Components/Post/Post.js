@@ -3,16 +3,17 @@ import no_image from './No-image.png';
 import './Post.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { formatDistanceToNowStrict, fromUnixTime } from 'date-fns';
+import { FaRegCommentAlt } from 'react-icons/fa';
 import CommentList from '../Comment/CommentList.js';
-import { FaRegCommentAlt } from "react-icons/fa";
 
 
 const Post = ({post}) => {
   const dispatch = useDispatch();
-  const [isTextLong, setIsTextLong] = useState(post.text && post.text.length > 250);
   const comments = useSelector(state => state.posts.comments);
   const commentStatus = useSelector(state => state.posts.status);
   const commentError = useSelector(state => state.posts.error);
+  //setting status for the comment dropdown
+  const [isOpen, setIsOpen] = useState(false);
 
 //making sure the url of the post has any format of the image
   const postHasImage = url => url.match(/\.(jpeg|jpg|png|gif)$/) !== null;
@@ -24,39 +25,38 @@ const Post = ({post}) => {
   return timeAgo;
   };
 
+//procedure to open and close the comments menu
+
+
+
   return (
     <article>
+      <div className= 'post-info'>
+        <p className='post-subreddit'><img className= 'subreddit-icon' 
+              src={post.subreddit.icon_img || `https://www.redditinc.com/assets/images/site/reddit-logo.png`} 
+              alt='subreddit' /> 
+              {post.subreddit}
+        </p>
+        <p className='post-author'>Posted by {post.author}</p>
+        <p className='post-date'>{formatDate([post.created_utc])}</p>
+      </div>
       <h3>{post.title}</h3>
       {postHasImage(post.url) ? (
                     <img src={post.url} alt="post-image" className='post-image'/>
                 ) : <img className='no-image' src={no_image} alt='no-image'/>
     }
-      {post.text ? (
-        isTextLong ? (
-          <p className='post-text'>
-            {post.text.substring(0, 250)}
-            <button
-              className="show-more"
-              type="button"
-              onClick={() => setIsTextLong(!isTextLong)}
-            >
-              ...continue reading
-            </button>
-          </p>
-        ) : (
-          <p className='post-text'>{post.text}</p>
-        )
-      ) : null}
-
-      <div className= 'post-info'>
-        <p>{post.subreddit}</p>
-        <p>Posted by: {post.author}</p>
-        <p>Posted on: {formatDate([post.created_utc])}</p>
-        <p>
-          <FaRegCommentAlt className="comment-icon" />
+      <p className='post-text'>{post.text}</p>
+      <p className='post-comments'>
+        <FaRegCommentAlt className='comment-icon' />
           {post.num_comments}</p>
+      <div className='comments-section'>
+        <button onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? 'Hide Comments' : 'Show Comments'}
+        </button>
+        <div className={`comment-dropdown ${isOpen ? '' : 'hidden'}`}>
+          <CommentList post={post}/>
+        </div>
       </div>
-      <CommentList post={post}/>
     </article>
     )
 }

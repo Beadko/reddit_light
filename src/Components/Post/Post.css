@@ -8,20 +8,16 @@ article {
 	width: 50%;
 	height: auto;
 	text-align: center;
-	padding: 2%;
-	margin-bottom: 1%;
+	padding: 1% 2%;
+	margin: 1%;
 
 }
 
-.post-text {
-	text-align: left;
-}
-
-.post-info {
+ p {
 	display: flex;
-	justify-content: space-between;
+  	align-items: center;
+ }
 
-}
 
 img {
 	width: 70%;
@@ -32,10 +28,27 @@ img {
 	width: 20%;
 	height:auto;
 }
- p {
+
+.post-text {
+	text-align: left;
+}
+
+.post-info {
 	display: flex;
-  	align-items: center;
+	justify-content: space-between;
+	color:gray;
+	font-weight: bold;
+}
+
+.post-subreddit {
+	color: black;
  }
+.comments-section {
+
+	display: inline-flex;
+	text-align: center;	
+
+}
 
 .comment-icon {
 	margin: 4px;
