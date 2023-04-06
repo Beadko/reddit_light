@@ -9,40 +9,24 @@ nav {
   height: 120px;
 
   background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .SearchBar {
 	display: flex;
-	flex-direction: row;
 	align-items: center;
-	justify-content: center;
-	margin: 0 120px;
-
-	width: 640px;
-	height: 24px;
-	background: linear-gradient(0deg, rgba(103, 80, 164, 0.11), rgba(103, 80, 164, 0.11)), #FFFBFE;
-	border: 1px solid rgba(128, 128, 128, .5);
-	border-radius: 28px;
+	margin-inline: 22%;
 }
 
 .SearchBar input {
-	width: 640px;
-	height: 24px;
-
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 24px;
-
-	display: flex;
-	flex-direction: row;
-	align-items: center;
 	padding: 8px;
 	gap: 4px;
-	width: 640px;
 	height: 24px;
-	background: linear-gradient(0deg, rgba(103, 80, 164, 0.11), rgba(103, 80, 164, 0.11)), #FFFBFE;
-	border: 1px solid rgba(128, 128, 128, .5);
 	border-radius: 28px;
+	width: 500px;
+	background: rgba(220, 220, 220, 0.4);
+	border: hidden;
 }
