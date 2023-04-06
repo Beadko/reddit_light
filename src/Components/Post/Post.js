@@ -25,10 +25,6 @@ const Post = ({post}) => {
   return timeAgo;
   };
 
-//procedure to open and close the comments menu
-
-
-
   return (
     <article>
       <div className= 'post-info'>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Comment.css';
 import { formatDistanceToNowStrict, fromUnixTime } from 'date-fns';
+import { FaReddit } from 'react-icons/fa';
 
 const Comment=({comment})=>{
 
@@ -12,13 +13,15 @@ const Comment=({comment})=>{
    
   
 	return(
-
-	      <div className="comment">
-	      	<img src={`https://www.redditinc.com/assets/images/site/reddit-logo.png`} />
-	        <p>Posted by: {comment.author}</p>
-	        <p>Posted on: {formatDate([comment.created_utc])}</p>
-	        <p>{comment.body}</p>
-	      </div>
+		<div className="comment">
+			<div className="comment-data">
+		        <p><FaReddit className='user-icon' /> {comment.author}</p>
+		        <p> {formatDate([comment.created_utc])}</p>
+		       </div>
+		    <div className='comment-body'>
+		        <p>{comment.body}</p>
+		    </div>
+	    </div>
 	)
 }
 

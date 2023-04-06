@@ -25,11 +25,11 @@ const CommentList = ({post}) => {
 	      content = <div><FaSpinner />Loading...</div>
 	    } else if (commentStatus === 'succeeded') {
 	      content = visibleComments.map((comment, index) => 
-	          <Comment key={comment.id} comment={comment} />
+	          <Comment className='comment' key={comment.id} comment={comment} />
 	      );
 	      showCount < comments.length && (
-            <button onClick={() => setShowCount(showCount === 3 ? comments.length : 3)}>
-               {showCount === 3 ? 'Show More' : 'Show Less'}
+            <button onClick={() => setShowCount(showCount === 5 ? comments.length : 5)}>
+               {showCount === 5 ? 'Show More' : 'Show Less'}
             </button>
          )
 

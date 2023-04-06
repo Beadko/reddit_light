@@ -1,0 +1,18 @@
+.comment {
+	background: rgb(220,220,220, 0.5);
+	padding: 8px;
+	margin: 16px;
+}
+.comment-data {
+	display:flex;
+	color: gray;
+	align-items: center;
+	justify-content: space-between;
+}
+.comment-body {
+	display: block;
+}
+
+.user-icon {
+	margin: 4px;
+}
