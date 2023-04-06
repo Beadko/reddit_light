@@ -1,10 +1,10 @@
 import React, { useState, useEffect} from 'react';
 import no_image from './No-image.png';
-import comment_icon from './comment_icon.png'
 import './Post.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { formatDistanceToNowStrict, fromUnixTime } from 'date-fns';
 import CommentList from '../Comment/CommentList.js';
+import { FaRegCommentAlt } from "react-icons/fa";
 
 
 const Post = ({post}) => {
@@ -53,7 +53,7 @@ const Post = ({post}) => {
         <p>Posted by: {post.author}</p>
         <p>Posted on: {formatDate([post.created_utc])}</p>
         <p>
-          <img src='comment_icon' className='comment-icon' alt='comments'/>
+          <FaRegCommentAlt className="comment-icon" />
           {post.num_comments}</p>
       </div>
       <CommentList post={post}/>
