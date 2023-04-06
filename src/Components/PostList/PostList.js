@@ -3,6 +3,7 @@ import './PostList.css';
 import Post from '../Post/Post.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectPosts, getPosts } from './PostsSlice.js';
+import { FaSpinner } from 'react-icons/fa';
 
 const PostList = () => {
 	const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const PostList = () => {
 
   	let content;
   	if (postStatus === 'loading') {
-    	content = <div className="spinner-border">Loading...</div>
+    	content = <div><FaSpinner /> Loading...</div>
   	} else if (postStatus === 'succeeded') {
     	content = posts.map( post => 
 			<Post key ={post.id} post={post}/> 

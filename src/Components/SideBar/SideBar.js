@@ -3,6 +3,8 @@ import './SideBar.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { selectSubreddits, getSubreddits, changeActiveSubreddit } from './SubredditSlice.js';
 import { getPosts } from '../PostList/PostsSlice.js';
+import { FaSpinner } from 'react-icons/fa';
+
 
 
 
@@ -21,7 +23,7 @@ const SideBar = () => {
 
 	let content;
   	if (subredditStatus === 'loading') {
-    	content = <div className="spinner-border">Loading...</div>
+    	content = <div><FaSpinner /> Loading...</div>
   	} else if (subredditStatus === 'succeeded') {
     	content = subreddits.map((subreddit) => (
 

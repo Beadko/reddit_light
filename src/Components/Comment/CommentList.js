@@ -3,6 +3,8 @@ import Comment from './Comment.js'
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from "react-router-dom";
 import { selectComments, getComments } from './CommentsSlice.js';
+import { FaSpinner } from 'react-icons/fa';
+
 
 const CommentList = ({post}) => {
 	const dispatch = useDispatch();
@@ -17,7 +19,7 @@ const CommentList = ({post}) => {
 
 	 let content;
 	  if (commentStatus === 'loading') {
-	      content = <div className="spinner-border">Loading...</div>
+	      content = <div><FaSpinner />Loading...</div>
 	    } else if (commentStatus === 'succeeded') {
 	      content = comments.map(comment => 
 	          <Comment key={comment.id} comment={comment} />
