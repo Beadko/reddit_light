@@ -7,16 +7,19 @@ html {
 },
 
 
+
 .App {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   position: relative;
   height: 100%;
+  flex-direction: column;
 }
-
 
 .topbar {
   display: flex;
+  justify-content: center;
   align-items: center;
   color: #000000;
   background-color: white;
@@ -27,3 +30,40 @@ html {
   width:100%;
 }
 
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.hamburger:hover {
+  background: none;
+}
+
+@media screen and (max-width: 950px) {
+  .sidebar {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    float: right;
+    width: 25%;
+  }
+
+  .sidebar.closed {
+    transform: translateX(-100%);
+  }
+}

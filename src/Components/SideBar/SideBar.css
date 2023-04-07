@@ -1,5 +1,4 @@
 .sidebar {
-
 	background: white;
 	width: 15%;
 	padding-top: 8px;
@@ -7,6 +6,7 @@
 	height: 100%;
 	overflow: auto;
 	top:5%;
+	transition: transform 0.3s ease-in-out;
 }
 
 .subreddit-title {
@@ -16,11 +16,14 @@
 }
 
 .subreddit-list {
+	display: flex;
+	flex-direction: column;
 	list-style-type:none;
 }
 
 .individual-subreddits {
  	width:100%;
+
 }
 
 .subreddit-icon {
@@ -31,6 +34,7 @@
 
 button {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	background: none;
 	border: none;

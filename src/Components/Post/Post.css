@@ -66,3 +66,9 @@ img {
 .comments-button {
 	position: top;
 }
+
+@media (max-width: 768px) {
+  .post-info {
+    display:none;
+  }
+}

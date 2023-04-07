@@ -51,7 +51,7 @@ const SideBar = () => {
 
 
 	return(
-		<div className="sidebar">
+		<div>
 			<h5 className="subreddit-title">SUBREDDITS</h5>
 			<ul className="subreddit-list">
 			{content}

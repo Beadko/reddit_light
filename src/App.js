@@ -9,19 +9,33 @@ import HomePage from './Pages/HomePage.js';
 import SearchPage from './Pages/SearchPage.js';
 import SubredditPage from './Pages/SubredditPage.js';
 import ErrorPage from './Pages/ErrorPage.js';
+import { FaBars } from 'react-icons/fa';
 
 
 function App() {
   const [posts, setPosts] = useState([]);
+  //Sidebar going into the hamburger menu when the device is smaller
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const handleToggleSidebar = () => {
+      console.log('Hamburger menu clicked');
+  setIsSidebarOpen(!isSidebarOpen);
+  };
+
+
 
   return (
     <Router>
       <div className="App">
         <div className="topbar">
           <Header />
-            <SearchBar />
+          <SearchBar />
+          <button className="hamburger" onClick={handleToggleSidebar}>
+            <FaBars />
+          </button>
         </div>
-        <SideBar /> 
+        <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+          <SideBar /> 
+        </div>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/r/:subreddit" component={SubredditPage} />

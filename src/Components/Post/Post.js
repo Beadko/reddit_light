@@ -46,7 +46,7 @@ const Post = ({post}) => {
         <FaRegCommentAlt className='comment-icon' />
           {post.num_comments}</p>
       <div className='comments-section'>
-        <button onClick={() => setIsOpen(!isOpen)}>
+        <button className ='comments-button' onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? 'Hide Comments' : 'Show Comments'}
         </button>
         <div className={`comment-dropdown ${isOpen ? '' : 'hidden'}`}>
