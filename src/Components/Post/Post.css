@@ -67,8 +67,12 @@ img {
 	position: top;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
+	article {
+		margin: 8px;
+	}
   .post-info {
     display:none;
   }
+
 }
