@@ -9,7 +9,7 @@ import { FaSpinner } from 'react-icons/fa';
 
 
 
-const SideBar = () => {
+const SideBar = ({className}) => {
 	const dispatch = useDispatch();
 	const subreddits = useSelector(selectSubreddits);
 	const subredditStatus = useSelector(state => state.subreddits.status);
@@ -51,7 +51,7 @@ const SideBar = () => {
 
 
 	return(
-		<div>
+		<div className={className}>
 			<h5 className="subreddit-title">SUBREDDITS</h5>
 			<ul className="subreddit-list">
 			{content}

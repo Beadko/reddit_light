@@ -1,12 +1,11 @@
 .sidebar {
 	background: white;
-	width: 15%;
+	width: 250px;
 	padding-top: 8px;
 	position: fixed;
 	height: 100%;
 	overflow: auto;
 	top:5%;
-	transition: transform 0.3s ease-in-out;
 }
 
 .subreddit-title {

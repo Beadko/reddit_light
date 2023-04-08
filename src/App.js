@@ -15,13 +15,10 @@ import { FaBars } from 'react-icons/fa';
 function App() {
   const [posts, setPosts] = useState([]);
   //Sidebar going into the hamburger menu when the device is smaller
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const handleToggleSidebar = () => {
-      console.log('Hamburger menu clicked');
-  setIsSidebarOpen(!isSidebarOpen);
+  const [showSidebar, setShowSidebar] = useState(false);
+  const handleMenuClick = () => {
+    setShowSidebar(!showSidebar);
   };
-
-
 
   return (
     <Router>
@@ -29,13 +26,11 @@ function App() {
         <div className="topbar">
           <Header />
           <SearchBar />
-          <button className="hamburger" onClick={handleToggleSidebar}>
+          <button className="menu-button" onClick={handleMenuClick}>
             <FaBars />
           </button>
         </div>
-        <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-          <SideBar /> 
-        </div>
+        <SideBar className={`sidebar ${showSidebar ? 'visible' : ''}`} />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/r/:subreddit" component={SubredditPage} />

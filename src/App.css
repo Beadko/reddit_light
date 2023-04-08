@@ -30,40 +30,35 @@ html {
   width:100%;
 }
 
-.sidebar.open {
-  transform: translateX(0);
-}
-
-.sidebar.closed {
-  transform: translateX(-100%);
-}
-
-.hamburger {
+.menu-button {
+  margin-right: 24px;
   display: none;
   font-size: 24px;
   cursor: pointer;
 }
 
-.hamburger:hover {
+.menu-button:hover {
   background: none;
 }
 
 @media screen and (max-width: 950px) {
-  .sidebar {
-    display: none;
-  }
 
-  .hamburger {
+  .menu-button {
     display: block;
   }
 
-  .sidebar.open {
-    transform: translateX(0);
-    float: right;
-    width: 25%;
-  }
-
-  .sidebar.closed {
+  .sidebar {
     transform: translateX(-100%);
   }
+
+  .sidebar.visible {
+    transform: translateX(0);
+    right:0;
+    border-left: 1px solid #dcdcdc;
+  }
 }
+
+
+
+
+
