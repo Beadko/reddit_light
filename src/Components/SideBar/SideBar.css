@@ -37,12 +37,15 @@ button {
 	align-items: center;
 	background: none;
 	border: none;
+	transition: transform 250ms;
 
 }
 
 button:hover {
 	background-color: #F5F5F5;
+	border-radius: 8px;
 	cursor: pointer;
+	transform: translateY(-10px);
 }
 
 .current {

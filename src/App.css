@@ -7,7 +7,6 @@ html {
 },
 
 
-
 .App {
   display: flex;
   flex-wrap: wrap;
@@ -48,13 +47,22 @@ html {
   }
 
   .sidebar {
-    transform: translateX(-100%);
-  }
-
-  .sidebar.visible {
-    transform: translateX(0);
+    transform: translateY(-500%);
     right:0;
     border-left: 1px solid #dcdcdc;
+    transition: transform 0.3s ease-out;
+    animation-name: drop-down;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;  }
+
+  .sidebar.visible {
+    transform: translateY(0);
+    right:0;
+    border-left: 1px solid #dcdcdc;
+    transition: transform 0.3s ease-in;
+    animation-name: drop-down;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
   }
 }
 
