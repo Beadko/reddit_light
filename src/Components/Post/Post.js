@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import no_image from './No-image.png';
 import './Post.css';
-import { useSelector, useDispatch } from 'react-redux';
 import { formatDistanceToNowStrict, fromUnixTime } from 'date-fns';
 import { FaRegCommentAlt } from 'react-icons/fa';
 import CommentList from '../Comment/CommentList.js';
@@ -35,7 +34,7 @@ const Post = ({post}) => {
       <h3>{post.title}</h3>
       {postHasImage(post.url) ? (
                     <img src={post.url} alt="post" className='post-image'/>
-                ) : <img className='no-image' src={no_image} />
+                ) : <img className='no-image' src={no_image} alt='empty' />
     }
       <p className='post-text'>{post.text}</p>
       <p className='post-comments'>

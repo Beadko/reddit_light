@@ -10,13 +10,10 @@ const PostList = () => {
 	const posts = useSelector(selectPosts);
 	const postStatus = useSelector(state => state.posts.status);
 	const error = useSelector(state => state.posts.error);
-	let postListEmpty = true;
 
 	useEffect(() => {
-		if (postListEmpty) {
-			if (postStatus === 'idle') {
-				dispatch(getPosts('funny_cats'));
-			}
+		if (postStatus === 'idle') {
+			dispatch(getPosts('funny_cats'));
 		}
 	},[postStatus, dispatch])
 
