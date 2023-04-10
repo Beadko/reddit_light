@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from '../../logo.png';
 import './Header.css';
+import { FaReddit } from 'react-icons/fa';
 
 class Header extends React.Component {
 	constructor(props){
@@ -9,7 +9,7 @@ class Header extends React.Component {
 	render(){
 		return(
 			<div className="header">
-				<img src={logo}  className="App-logo" alt="logo" />
+				<FaReddit className="App-logo" alt="logo" />
 				<h2 className="App-header">
 	            	Reddit Light
 	          	</h2>

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import postsReducer from '../Components/PostList/PostsSlice.js';
 import subredditReducer from '../Components/SideBar/SubredditSlice.js';
-import commentsReducer from '../Components/Comment/CommentsSlice';
+import commentsReducer from '../Components/Comment/CommentsSlice.js';
 
 export const store = configureStore({ 
 
