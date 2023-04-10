@@ -16,7 +16,6 @@ const PostList = () => {
 		if (postListEmpty) {
 			if (postStatus === 'idle') {
 				dispatch(getPosts('funny_cats'));
-				postListEmpty = false
 			}
 		}
 	},[postStatus, dispatch])

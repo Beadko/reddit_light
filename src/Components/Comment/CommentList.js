@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Comment from './Comment.js'
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from "react-router-dom";
 import { selectComments, getComments } from './CommentsSlice.js';
 import { FaSpinner } from 'react-icons/fa';
-
 
 const CommentList = ({post}) => {
 	const dispatch = useDispatch();

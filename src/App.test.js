@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom';
 import TestHook from './util/TestHook.js';
 import {render, fireEvent, cleanup} from '@testing-library/react';
@@ -14,6 +14,5 @@ it('Text in state is changed when button clicked', () => {
     fireEvent.click(getByText("State Change Button"))
 
     expect(getByText(/Initial/i).textContent).toBe("Initial State Changed")
- })
-
+ });
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import no_image from './No-image.png';
 import './Post.css';
 import { useSelector, useDispatch } from 'react-redux';
@@ -8,10 +8,6 @@ import CommentList from '../Comment/CommentList.js';
 
 
 const Post = ({post}) => {
-  const dispatch = useDispatch();
-  const comments = useSelector(state => state.posts.comments);
-  const commentStatus = useSelector(state => state.posts.status);
-  const commentError = useSelector(state => state.posts.error);
   //setting status for the comment dropdown
   const [isOpen, setIsOpen] = useState(false);
 
@@ -38,8 +34,8 @@ const Post = ({post}) => {
       </div>
       <h3>{post.title}</h3>
       {postHasImage(post.url) ? (
-                    <img src={post.url} alt="post-image" className='post-image'/>
-                ) : <img className='no-image' src={no_image} alt='no-image'/>
+                    <img src={post.url} alt="post" className='post-image'/>
+                ) : <img className='no-image' src={no_image} />
     }
       <p className='post-text'>{post.text}</p>
       <p className='post-comments'>

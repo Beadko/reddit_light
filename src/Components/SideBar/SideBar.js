@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './SideBar.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { selectSubreddits, getSubreddits, changeActiveSubreddit } from './SubredditSlice.js';
@@ -27,7 +27,7 @@ const SideBar = ({className}) => {
   	} else if (subredditStatus === 'succeeded') {
     	content = subreddits.map((subreddit) => (
 
-			<li className='individual-subreddits'
+			<li 
 				key={subreddit.id}                            
 				onClick={() => dispatch(changeActiveSubreddit(subreddit.display_name))}
                 className={currentSubreddit === subreddit.display_name ? 'current' : ''}

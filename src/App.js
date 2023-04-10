@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import Header from './Components/Header/Header.js';
 import SearchBar from './Components/SearchBar/SearchBar.js';
-import PostList from './Components/PostList/PostList.js';
 import SideBar from './Components/SideBar/SideBar.js'
 import HomePage from './Pages/HomePage.js';
 import SearchPage from './Pages/SearchPage.js';
@@ -13,7 +12,6 @@ import { FaBars } from 'react-icons/fa';
 
 
 function App() {
-  const [posts, setPosts] = useState([]);
   //Sidebar going into the hamburger menu when the device is smaller
   const [showSidebar, setShowSidebar] = useState(false);
   const handleMenuClick = () => {

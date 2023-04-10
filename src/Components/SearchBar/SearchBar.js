@@ -1,7 +1,7 @@
 import './SearchBar.css';
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectSearchTerm, getSearchPosts, selectPosts } from '../PostList/PostsSlice.js';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { getSearchPosts } from '../PostList/PostsSlice.js';
 
 const SearchBar = ({setPosts, searchPosts}) => {
 	const handleSubmit = event => event.preventDefault();
