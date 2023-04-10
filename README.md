@@ -11,3 +11,5 @@ The project also includes the end-to-end tests using Jest and enzyme.
 The API is accessible from the mobile and desktop devices and have a Lighthouse 90+ score.
 
 **For the wireframes** [Click Here](https://www.figma.com/file/2IdxoUmEbXE2CYNALiWpY9/Reddit-light?node-id=0%3A1&t=zQceSL20zVHFs2Vk-1)
+
+for the final version of the project, follow this link: https://redditlight.netlify.app/
